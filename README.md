@@ -1,6 +1,6 @@
-42Piscine
+# 42 Piscine (Piscine #4 at 42 Penang, August 2026)
 This repository contains the solutions of my exercises for the 42 C Piscine (Piscine #4, August 2026 at 42 Penang). Remains incomplete until the programme finishes.
----
+
 Progress thus far:
 Shell00: 100%
 Shell01: 92%
@@ -18,17 +18,17 @@ C10: (ungraded)
 C11: (ungraded)
 C12: (ungraded)
 C13: (ungraded)
----
+
 Exam00: 80%
 Exam01: 100%
 Exam02: 90%
 Exam03: (TBD)
---- 
+
 Rush00: 108%
 Rush01: 125%
 Rush02: (unreleased by bocal)
 BSQ: (unreleased by bocal)
----
+
 Exam Questions
 Exam00: 80%
 1. only_z
