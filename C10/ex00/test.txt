@@ -1,0 +1,1 @@
+this is a file to test the capabilities of ft_display_file.
