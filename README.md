@@ -2,34 +2,35 @@
 This repository contains the solutions of my exercises for the 42 C Piscine (Piscine #4, August 2026 at 42 Penang). Remains incomplete until the programme finishes.
 
 Progress thus far:
-Shell00: 100%
-Shell01: 92%
-C00: 100%
-C01: 100%
-C02: 100%
-C03: 100%
-C04: 100%
-C05: 100%
-C06: 100%
-C07: 100%
-C08: 100%
-C09: 100%
-C10: (ungraded)
-C11: (ungraded)
-C12: (ungraded)
-C13: (ungraded)
-
-Exam00: 80%
-Exam01: 100%
-Exam02: 90%
-Exam03: (TBD)
-
-Rush00: 108%
-Rush01: 125%
-Rush02: (unreleased by bocal)
-BSQ: (unreleased by bocal)
+1. Shell00: 100%
+2. Shell01: 92%
+3. C00: 100%
+4. C01: 100%
+5. C02: 100%
+6. C03: 100%
+7. C04: 100%
+8. C05: 100%
+9. C06: 100%
+10. C07: 100%
+11. C08: 100%
+12. C09: 100%
+13. C10: (ungraded)
+14. C11: (ungraded)
+15. C12: (ungraded)
+16. C13: (ungraded)
+---
+1. Exam00: 80%
+2. Exam01: 100%
+3. Exam02: 90%
+4. Exam03: (TBD)
+---
+1. Rush00: 108%
+2. Rush01: 125%
+3. Rush02: (unreleased by bocal)
+4. BSQ: (unreleased by bocal)
 
 Exam Questions
+---
 Exam00: 80%
 1. only_z
 2. ft_print_numbers
