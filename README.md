@@ -14,8 +14,8 @@ Progress thus far:
 10. C07: 100%
 11. C08: 100%
 12. C09: 100%
-13. C10: (ungraded)
-14. C11: (ungraded)
+13. C10: 15%
+14. C11: 100%
 15. C12: (ungraded)
 16. C13: (ungraded)
 ---
