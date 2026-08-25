@@ -6,7 +6,7 @@
 /*   By: elim-hon <elim-hon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/24 10:00:46 by elim-hon          #+#    #+#             */
-/*   Updated: 2026/08/24 10:58:49 by elim-hon         ###   ########.fr       */
+/*   Updated: 2026/08/25 07:44:06 by elim-hon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ int	*ft_map(int *tab, int length, int (*f)(int))
 	int	i;
 
 	arr = (int *)malloc(sizeof(int) * length);
+	if (!arr)
+		return (NULL);
 	i = 0;
 	while (i < length)
 	{

@@ -6,18 +6,18 @@
 /*   By: elim-hon <elim-hon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/24 12:19:52 by elim-hon          #+#    #+#             */
-/*   Updated: 2026/08/24 14:34:28 by elim-hon         ###   ########.fr       */
+/*   Updated: 2026/08/25 14:51:45 by elim-hon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	ft_atoi(char *str);
-int	ft_plus(int a, int b);
-int	ft_minus(int a, int b);
-int	ft_multiply(int a, int b);
-int	ft_divide(int a, int b);
-int	ft_modulo(int a, int b);
+int		ft_atoi(char *str);
+int		ft_plus(int a, int b);
+int		ft_minus(int a, int b);
+int		ft_multiply(int a, int b);
+int		ft_divide(int a, int b);
+int		ft_modulo(int a, int b);
 
 void	ft_putnbr(int nb)
 {
@@ -46,7 +46,7 @@ int	ft_calc(int a, int b, int (*f)(int, int))
 int	ft_operation(int a, int b, char operator)
 {
 	int	number;
-	
+
 	number = 0;
 	if (operator == '+')
 		number = ft_calc(a, b, &ft_plus);
@@ -56,17 +56,17 @@ int	ft_operation(int a, int b, char operator)
 		number = ft_calc(a, b, &ft_multiply);
 	else if (operator == '/')
 		number = ft_calc(a, b, &ft_divide);
-	else if (operator == '/')
+	else if (operator == '%')
 		number = ft_calc(a, b, &ft_modulo);
 	return (number);
 }
 
 int	main(int argc, char **argv)
 {
-	int	a;
-	int	b;
+	int		a;
+	int		b;
 	char	operator;
-	int	number;
+	int		number;
 
 	if (argc == 4)
 	{
@@ -75,16 +75,17 @@ int	main(int argc, char **argv)
 		operator = argv[2][0];
 		if (b == 0 && operator == '/')
 		{
-			write(1, "Stop : division by zero", 23);
+			write(1, "Stop : division by zero\n", 24);
 			return (0);
 		}
 		if (b == 0 && operator == '%')
 		{
-			write(1, "Stop : modulo by zero", 21);
+			write(1, "Stop : modulo by zero\n", 22);
 			return (0);
 		}
 		number = ft_operation(a, b, operator);
 		ft_putnbr(number);
+		write(1, "\n", 1);
 	}
 	return (0);
 }

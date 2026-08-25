@@ -6,7 +6,7 @@
 /*   By: elim-hon <elim-hon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/24 11:29:40 by elim-hon          #+#    #+#             */
-/*   Updated: 2026/08/24 11:39:21 by elim-hon         ###   ########.fr       */
+/*   Updated: 2026/08/25 07:47:51 by elim-hon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_count_if(char **tab, int length, int (*f)(char *))
 
 	i = 0;
 	count = 0;
-	while (tab[i] && i < length)
+	while (i < length && tab[i])
 	{
 		if ((*f)(tab[i]) != 0)
 			count++;

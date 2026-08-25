@@ -1,4 +1,4 @@
-.PHONY: all clean fclean
+.PHONY: all clean fclean re
 
 NAME = ft_cat
 SRCS = ft_cat.c
@@ -16,3 +16,5 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
+
+re: fclean all

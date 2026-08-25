@@ -6,49 +6,17 @@
 /*   By: elim-hon <elim-hon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/24 07:38:24 by elim-hon          #+#    #+#             */
-/*   Updated: 2026/08/24 07:38:57 by elim-hon         ###   ########.fr       */
+/*   Updated: 2026/08/25 07:25:52 by elim-hon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <errno.h>
-#include <fcntl.h>
-#include <libgen.h>
-#include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
-
-int	ft_atoi(char *str)
-{
-	int	res;
-
-	res = 0;
-	while (*str >= '0' && *str <= '9')
-	{
-		res = res * 10 + (*str - '0');
-		str++;
-	}
-	return (res);
-}
-
-void	ft_display_error(char *prog_name, char *file_name)
-{
-	char	*base;
-
-	base = basename(prog_name);
-	write(2, base, strlen(base));
-	write(2, ": ", 2);
-	write(2, file_name, strlen(file_name));
-	write(2, ": ", 2);
-	write(2, strerror(errno), strlen(strerror(errno)));
-	write(2, "\n", 1);
-}
+#include "ft_tail.h"
 
 void	ft_tail_stream(int fd, int byte_count)
 {
 	char	*buf;
 	char	ch;
 	int		total_bytes;
-	int		i;
 
 	if (byte_count <= 0)
 		return ;
@@ -61,40 +29,29 @@ void	ft_tail_stream(int fd, int byte_count)
 		buf[total_bytes % byte_count] = ch;
 		total_bytes++;
 	}
-	if (total_bytes <= byte_count)
-		write(1, buf, total_bytes);
-	else
-	{
-		i = 0;
-		while (i < byte_count)
-		{
-			write(1, &buf[(total_bytes + i) % byte_count], 1);
-			i++;
-		}
-	}
+	print_tail(buf, total_bytes, byte_count);
 	free(buf);
 }
 
-int	main(int argc, char **argv)
+int	parse_byte_count(char **argv, int *file_idx)
 {
-	int	byte_count;
-	int	file_idx;
-	int	fd;
-
-	if (argc < 3)
-		return (0);
 	if (argv[1][0] == '-' && argv[1][1] == 'c' && argv[1][2] != '\0')
 	{
-		byte_count = ft_atoi(&argv[1][2]);
-		file_idx = 2;
+		*file_idx = 2;
+		return (ft_atoi(&argv[1][2]));
 	}
 	else if (strcmp(argv[1], "-c") == 0)
 	{
-		byte_count = ft_atoi(argv[2]);
-		file_idx = 3;
+		*file_idx = 3;
+		return (ft_atoi(argv[2]));
 	}
-	else
-		return (0);
+	return (-1);
+}
+
+void	process_files(int argc, char **argv, int file_idx, int byte_count)
+{
+	int	fd;
+
 	if (file_idx >= argc)
 		ft_tail_stream(0, byte_count);
 	else
@@ -112,5 +69,18 @@ int	main(int argc, char **argv)
 			file_idx++;
 		}
 	}
+}
+
+int	main(int argc, char **argv)
+{
+	int	byte_count;
+	int	file_idx;
+
+	if (argc < 3)
+		return (0);
+	byte_count = parse_byte_count(argv, &file_idx);
+	if (byte_count == -1)
+		return (0);
+	process_files(argc, argv, file_idx, byte_count);
 	return (0);
 }

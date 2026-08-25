@@ -6,7 +6,7 @@
 /*   By: elim-hon <elim-hon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/23 11:20:12 by elim-hon          #+#    #+#             */
-/*   Updated: 2026/08/24 07:32:20 by elim-hon         ###   ########.fr       */
+/*   Updated: 2026/08/25 15:08:04 by elim-hon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,23 @@
 
 #define BUF_SIZE 28672
 
+int	ft_strlen(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
+
 void	ft_display_error(char *prog_name, char *file_name)
 {
-	char	*base;
-
-	base = basename(prog_name);
-	write(2, base, strlen(base));
+	write(2, prog_name, ft_strlen(prog_name));
 	write(2, ": ", 2);
-	write(2, file_name, strlen(file_name));
+	write(2, file_name, ft_strlen(file_name));
 	write(2, ": ", 2);
-	write(2, strerror(errno), strlen(strerror(errno)));
+	write(2, strerror(errno), ft_strlen(strerror(errno)));
 	write(2, "\n", 1);
 }
 

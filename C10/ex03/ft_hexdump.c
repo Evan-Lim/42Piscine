@@ -6,16 +6,16 @@
 /*   By: elim-hon <elim-hon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/24 07:50:49 by elim-hon          #+#    #+#             */
-/*   Updated: 2026/08/24 07:51:01 by elim-hon         ###   ########.fr       */
+/*   Updated: 2026/08/25 07:23:30 by elim-hon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <errno.h>
 #include <fcntl.h>
+#include <libgen.h>
 #include <stdlib.h>
 #include <string.h>
-#include <libgen.h>
-#include <errno.h>
+#include <unistd.h>
 
 void	print_hex(unsigned int val, int pad)
 {
@@ -36,6 +36,23 @@ void	print_hex(unsigned int val, int pad)
 	write(1, buf, pad);
 }
 
+void	print_ascii(unsigned char *buf, int size)
+{
+	int	i;
+
+	write(1, " |", 2);
+	i = 0;
+	while (i < size)
+	{
+		if (buf[i] >= 32 && buf[i] <= 126)
+			write(1, &buf[i], 1);
+		else
+			write(1, ".", 1);
+		i++;
+	}
+	write(1, "|\n", 2);
+}
+
 void	print_line(unsigned char *buf, int size, int total_bytes)
 {
 	int	i;
@@ -54,17 +71,7 @@ void	print_line(unsigned char *buf, int size, int total_bytes)
 			write(1, " ", 1);
 		i++;
 	}
-	write(1, " |", 2);
-	i = 0;
-	while (i < size)
-	{
-		if (buf[i] >= 32 && buf[i] <= 126)
-			write(1, &buf[i], 1);
-		else
-			write(1, ".", 1);
-		i++;
-	}
-	write(1, "|\n", 2);
+	print_ascii(buf, size);
 }
 
 void	ft_hexdump(int fd)
