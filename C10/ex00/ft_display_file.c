@@ -13,8 +13,6 @@
 #include <unistd.h>
 #include <fcntl.h>
 
-#define BUF_SIZE 4096
-
 void	ft_putstr(char *str)
 {
 	while (*str)
@@ -28,7 +26,7 @@ int	display_file(char *filename)
 {
 	int		fd;
 	int		bytes_read;
-	char	buffer[BUF_SIZE];
+	char	buffer[4096];
 
 	fd = open(filename, O_RDONLY);
 	if (fd < 0)
