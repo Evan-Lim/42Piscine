@@ -1,22 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list.h                                          :+:      :+:    :+:   */
+/*   ft_list_reverse_fun.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elim-hon <elim-hon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/26 07:37:15 by elim-hon          #+#    #+#             */
-/*   Updated: 2026/08/26 07:39:06 by elim-hon         ###   ########.fr       */
+/*   Created: 2026/08/26 12:34:23 by elim-hon          #+#    #+#             */
+/*   Updated: 2026/08/26 12:44:20 by elim-hon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_LIST_H
-# define FT_LIST_H
+#include "ft_list.h"
 
-typedef struct s_list
+int	ft_list_size_internal(t_list *begin_list)
 {
-	struct s_list	*next;
-	void			*data;
-}					t_list;
+	int	count;
 
-#endif
+	count = 0;
+	while (begin_list)
+	{
+		count++;
+		begin_list = 
+	}
+}
+
+void	ft_list_reverse_fun(t_list *begin_list)
+{
+	
+}

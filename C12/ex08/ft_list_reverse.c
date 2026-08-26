@@ -1,28 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_at.c                                       :+:      :+:    :+:   */
+/*   ft_list_reverse.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elim-hon <elim-hon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/26 07:37:05 by elim-hon          #+#    #+#             */
-/*   Updated: 2026/08/26 07:50:13 by elim-hon         ###   ########.fr       */
+/*   Created: 2026/08/26 07:50:55 by elim-hon          #+#    #+#             */
+/*   Updated: 2026/08/26 08:02:36 by elim-hon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+typedef struct s_list
+{
+	struct s_list	*next;
+	void			*data;
+}					t_list;
+*/
+
 #include "ft_list.h"
 
-t_list	*ft_list_at(t_list *begin_list, unsigned int nbr)
+void	ft_list_reverse(t_list **begin_list)
 {
+	t_list	*prev;
 	t_list	*current;
+	t_list	*next;
 
-	current = begin_list;
-	while (current && nbr > 0)
+	if (!begin_list || !*begin_list)
+		return ;
+	prev = 0;
+	current = *begin_list;
+	while (current)
 	{
-		current = current->next;
-		nbr--;
+		next = current->next;
+		current->next = prev;
+		prev = current;
+		current = next;
 	}
-	return (current);
+	*begin_list = prev;
 }
 
 /*
@@ -63,18 +78,27 @@ t_list	*ft_list_push_strs(int size, char **strs)
 	return (head);
 }
 
+void	print_list(t_list *head)
+{
+	while (head)
+	{
+		printf("[%s] -> ", (char *)head->data);
+		head = head->next;
+	}
+	printf("NULL\n");
+}
+
 int	main(void)
 {
-	char	*strs[] = {"Zero", "One", "Two", "Three"};
+	char	*strs[] = {"A", "B", "C", "D"};
 	t_list	*list;
-	t_list	*node;
 
 	list = ft_list_push_strs(4, strs);
-	node = ft_list_at(list, 2);
-	if (node)
-		printf("%s\n", (char *)node->data);
-	else
-		printf("Out of bounds\n");
+	printf("Before: ");
+	print_list(list);
+	ft_list_reverse(&list);
+	printf("After: ");
+	print_list(list);
 	return (0);
 }
 */

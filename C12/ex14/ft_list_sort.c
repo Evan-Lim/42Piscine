@@ -1,33 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_at.c                                       :+:      :+:    :+:   */
+/*   ft_list_sort.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elim-hon <elim-hon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/26 07:37:05 by elim-hon          #+#    #+#             */
-/*   Updated: 2026/08/26 07:50:13 by elim-hon         ###   ########.fr       */
+/*   Created: 2026/08/26 12:12:13 by elim-hon          #+#    #+#             */
+/*   Updated: 2026/08/26 12:33:38 by elim-hon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_list.h"
 
-t_list	*ft_list_at(t_list *begin_list, unsigned int nbr)
+void	ft_list_sort(t_list **begin_list, int (*cmp)())
 {
-	t_list	*current;
+	t_list	*curr;
+	void	*tmp;
+	int		swapped;
 
-	current = begin_list;
-	while (current && nbr > 0)
+	if (!begin_list || !*begin_list)
+		return ;
+	swapped = 1;
+	while (swapped)
 	{
-		current = current->next;
-		nbr--;
+		swapped = 0;
+		curr = *begin_list;
+		while (curr && curr->next)
+		{
+			if ((*cmp)(curr->data, curr->next->data) > 0)
+			{
+				tmp = curr->data;
+				curr->data = curr->next->data;
+				curr->next->data = tmp;
+				swapped = 1;
+			}
+			curr = curr->next;
+		}
 	}
-	return (current);
 }
 
 /*
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 t_list	*ft_create_elem(void *data)
 {
@@ -63,18 +78,32 @@ t_list	*ft_list_push_strs(int size, char **strs)
 	return (head);
 }
 
+int	cmp_strs(void *a, void *b)
+{
+	return (strcmp((char *)a, (char *)b));
+}
+
+void	print_list(t_list *head)
+{
+	while (head)
+	{
+		printf("[%s] -> ", (char *)head->data);
+		head = head->next;
+	}
+	printf("NULL\n");
+}
+
 int	main(void)
 {
-	char	*strs[] = {"Zero", "One", "Two", "Three"};
+	char	*strs[] = {"cherry", "apple", "date", "banana"};
 	t_list	*list;
-	t_list	*node;
 
 	list = ft_list_push_strs(4, strs);
-	node = ft_list_at(list, 2);
-	if (node)
-		printf("%s\n", (char *)node->data);
-	else
-		printf("Out of bounds\n");
+	printf("Before sorting: ");
+	print_list(list);
+	ft_list_sort(&list, &cmp_strs);
+	printf("After sorting: ");
+	print_list(list);
 	return (0);
 }
 */

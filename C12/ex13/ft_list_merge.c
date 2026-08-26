@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_at.c                                       :+:      :+:    :+:   */
+/*   ft_list_merge.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elim-hon <elim-hon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/26 07:37:05 by elim-hon          #+#    #+#             */
-/*   Updated: 2026/08/26 07:50:13 by elim-hon         ###   ########.fr       */
+/*   Created: 2026/08/26 11:55:42 by elim-hon          #+#    #+#             */
+/*   Updated: 2026/08/26 12:09:12 by elim-hon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_list.h"
 
-t_list	*ft_list_at(t_list *begin_list, unsigned int nbr)
+void	ft_list_merge(t_list **begin_list1, t_list *begin_list2)
 {
-	t_list	*current;
+	t_list	*curr;
 
-	current = begin_list;
-	while (current && nbr > 0)
+	if (!begin_list1)
+		return ;
+	if (!*begin_list1)
 	{
-		current = current->next;
-		nbr--;
+		*begin_list1 = begin_list2;
+		return ;
 	}
-	return (current);
+	curr = *begin_list1;
+	while (curr->next)
+		curr = curr->next;
+	curr->next = begin_list2;
 }
 
 /*
@@ -45,7 +49,7 @@ t_list	*ft_list_push_strs(int size, char **strs)
 {
 	t_list	*head;
 	t_list	*new_node;
-	int		i;
+	int	i;
 
 	if (size <= 0 || !strs)
 		return (0);
@@ -63,18 +67,30 @@ t_list	*ft_list_push_strs(int size, char **strs)
 	return (head);
 }
 
+void	print_list(t_list *head)
+{
+	while (head)
+	{
+		printf("[%s] -> ", (char *)head->data);
+		head = head->next;
+	}
+	printf("NULL\n");
+}
+
 int	main(void)
 {
-	char	*strs[] = {"Zero", "One", "Two", "Three"};
-	t_list	*list;
-	t_list	*node;
+	char	*strs1[] = {"One", "Two"};
+	char	*strs2[] = {"Three", "Four"};
+	t_list	*list1 = ft_list_push_strs(2, strs1);
+	t_list	*list2 = ft_list_push_strs(2, strs2);
 
-	list = ft_list_push_strs(4, strs);
-	node = ft_list_at(list, 2);
-	if (node)
-		printf("%s\n", (char *)node->data);
-	else
-		printf("Out of bounds\n");
+	printf("List 1 before merge: ");
+	print_list(list1);
+	printf("List 2 before merge: ");
+	print_list(list2);
+	ft_list_merge(&list1, list2);
+	printf("Merged List 1: ");
+	print_list(list1);
 	return (0);
 }
 */

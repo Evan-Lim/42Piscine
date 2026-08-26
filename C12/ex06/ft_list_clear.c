@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_list_clear.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: elim-hon <elim-hon@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/08/26 07:36:46 by elim-hon          #+#    #+#             */
+/*   Updated: 2026/08/26 07:38:32 by elim-hon         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_list.h"
 #include <stdlib.h>
 
@@ -15,7 +27,7 @@ void	ft_list_clear(t_list *begin_list, void (*free_fct)(void *))
 	}
 }
 
-
+/*
 #include <stdio.h>
 
 int	ft_strlen(char *src)
@@ -68,3 +80,4 @@ int	main(void)
 	printf("List cleared\n");
 	return (0);
 }
+*/
