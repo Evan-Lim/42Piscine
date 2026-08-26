@@ -1,5 +1,6 @@
 # 42 Piscine (Piscine #4 at 42 Penang, August 2026)
-This repository contains the solutions of my exercises for the 42 C Piscine (Piscine #4, August 2026 at 42 Penang). Remains incomplete until the programme finishes.
+This repository contains the solutions of my exercises for the 42 C Piscine (Piscine #4, August 2026 at 42 Penang). Remains incomplete until the programme finishes.\
+For extra exercises and preparation for exams: https://github.com/Evan-Lim/42PiscineExtra
 
 Progress thus far:
 1. Shell00: 100%
@@ -14,10 +15,11 @@ Progress thus far:
 10. C07: 100%
 11. C08: 100%
 12. C09: 100%
-13. C10: 15%
+13. C10: 15% (ex01 - ex02 OK)
 14. C11: 100%
 15. C12: (ungraded)
-16. C13: (ungraded)
+16. C13: (ungraded)\
+Untracked, completed during Piscine: C10 (ex03 - ex04), C12 (ex00 - ex07)
 ---
 1. Exam00: 80%
 2. Exam01: 100%
