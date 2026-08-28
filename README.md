@@ -18,13 +18,12 @@ Progress thus far:
 13. C10: 15% (ex01 - ex02 OK)
 14. C11: 100%
 15. C12: (ungraded)
-16. C13: (ungraded)\
-Untracked, completed during Piscine: C10 (ex03 - ex04), C12 (ex00 - ex07)
+16. C13: (ungraded)
 ---
 1. Exam00: 80%
 2. Exam01: 100%
 3. Exam02: 90%
-4. Exam03: (TBD)
+4. Final Exam: 72%
 ---
 1. Rush00: 108%
 2. Rush01: 125%
@@ -68,3 +67,18 @@ Exam02: 90%
 8. count_words
 9. ft_rrange
 10. ft_split
+
+Final Exam: 72%
+1. aff_a
+2. interval_space
+3. ft_strcmp
+4. count_len
+5. ft_atoi
+6. first_word
+7. ft_putnbr
+8. aff_first_param
+9. inter
+10. count_words
+11. ft_rrange
+12. ft_split
+13. sort_list0
