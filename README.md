@@ -1,8 +1,9 @@
 # 42 Piscine (Piscine #4 at 42 Penang, August 2026)
 This repository contains the solutions of my exercises for the 42 C Piscine (Piscine #4, August 2026 at 42 Penang).\
-For extra exercises and preparation for exams: https://github.com/Evan-Lim/42PiscineExtra
+Level achieved: 11.00\
+For extra exercises and preparation for exams: https://github.com/Evan-Lim/42PiscineExtra (repository not sufficiently maintained)
 
-Progress thus far:
+Progress:
 1. Shell00: 100%
 2. Shell01: 92%
 3. C00: 100%
